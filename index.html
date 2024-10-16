@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/styles/styles.css">
+    <link rel="stylesheet" href="/src/styles/header.css">
+    <link rel="stylesheet" href="/src/styles/stylesLogin.css">
+    <title>Landing Page - FMJD</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav id="navbar">
+            <img src="/src/image/logo_bandeira_MA (1).png" alt="Logo Bandeira do Maranhão" width="70" height="50">
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="scroll-link">Sobre Nós</a> <!-- Adicionando a classe scroll-link para rolagem suave -->
+                </li>
+                <li class="nav-item">
+                    <a href="#tournaments" class="scroll-link">Torneios</a> <!-- Novo item Torneios -->
+                </li>
+            </ul>
+            <button class="btf-default" onclick="redirectToLogin()">
+                Torne-se membro!
+            </button>
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+
+        <section id="home">
+            <h1>Bem-vindo à Federação Maranhense de Jogos de Dama</h1>
+            <p>Aqui você encontra tudo sobre os campeonatos, eventos e novidades do mundo dos jogos de dama no Maranhão.</p>
+        </section>
+
+        <section>
+            <div class="about-image">
+                <img src="/src/image/FEDERAÇÃO MARANHENSE DE JOGOS DE DAMA_page-0001 (1).jpg" alt="Sobre nós - Federação Maranhense de Damas" width="400" height="300">
+            </div>
+        </section>
+
+        <!-- Seção Sobre Nós -->
+        <section id="about" class="about-section">
+            <h2>Sobre Nós</h2>
+                    <p>
+                        A Federação Maranhense de Jogos de Dama foi fundada com o objetivo de promover o ensino do jogo de damas em todo o estado do Maranhão. 
+                        Nossa missão é incentivar a prática desse jogo milenar, conhecido por sua capacidade de estimular o raciocínio lógico e estratégico.
+                        Ao longo dos anos, temos organizado campeonatos regionais, workshops e eventos voltados para todas as idades, 
+                        promovendo o aprendizado e a prática do jogo de damas em diversas escolas e comunidades.
+                        Além de ser uma excelente atividade de lazer, o jogo de damas tem sido uma ferramenta educativa para crianças e jovens, 
+                        auxiliando no desenvolvimento de habilidades como concentração, planejamento e solução de problemas.
+                        Nosso objetivo é continuar disseminando a cultura do jogo de damas, preservando sua tradição e garantindo que as futuras gerações possam
+                        se beneficiar dos muitos ensinamentos que ele oferece.
+                    </p>
+        </section>
+
+                <!-- Seção Torneios -->
+        <section id="tournaments" class="tournaments-section">
+            <h2>Torneios</h2>
+            <p>Dê uma olhada nos Torneios organizados pela Federação Maranhense de Jogos de Dama. Participe e mostre suas habilidades!</p>
+
+            <!-- Slider -->
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="/src/image/Jogo de Dama (1)_page-0002.jpg" alt="Torneio 1">
+                    </div>
+                    <div class="slide">
+                        <img src="/src/image/Jogo de Dama (1)_page-0003.jpg" alt="Torneio 2">
+                    </div>
+                    <div class="slide">
+                        <img src="/src/image/Jogo de Dama (1)_page-0004.jpg" alt="Torneio 3">
+                    </div>
+                    <div class="slide">
+                        <img src="/src/image/Jogo de Dama (1)_page-0005.jpg" alt="Torneio 4">
+                    </div>
+                    <div class="slide">
+                        <img src="/src/image/Jogo de Dama (1)_page-0006.jpg" alt="Torneio 5">
+                    </div>
+                    <div class="slide">
+                        <img src="/src/image/Jogo de Dama (1)_page-0007.jpg" alt="Torneio 6">
+                    </div>
+                    <div class="slide">
+                        <img src="/src/image/Jogo de Dama (1)_page-0012.jpg" alt="Torneio 7">
+                    </div>
+                </div>
+                <!-- Controls for the slider -->
+                <div class="controls">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Federação Maranhense de Jogos de Dama. Todos os direitos reservados.</p>
+        <p><a href="mailto:contato@federacaojogosdama.com.br">contato@federacaojogosdama.com.br</a></p>
+    </footer>
+
+    <!-- Script para redirecionar -->
+    <script>
+        function redirectToLogin() {
+            window.location.href = "login.html";  // Redireciona para a página de login
+        }
+
+        // Efeito de rolagem suave
+        document.querySelectorAll('.scroll-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script src="/src/javascript/script.js"></script>
+
+</body>
+</html>
