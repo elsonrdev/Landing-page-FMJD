@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/styles/styles.css">
-    <link rel="stylesheet" href="/src/styles/header.css">
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/header.css">
+    <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
     <title>Login</title>
 </head>
 <body>
@@ -12,7 +13,9 @@
     <!-- Header -->
     <header>
         <nav id="navbar">
-            <img src="/src/image/logo_bandeira_MA (1).png" alt="Logo Bandeira do Maranhão" width="70" height="50">
+            <div id="img--div">
+                <img src="src/image/logo_bandeira_MA (1).png" alt="Logo Bandeira do Maranhão" width="70" height="50">
+            </div>
             <ul id="nav_list">
                 <li class="nav-item">
                     <a href="index.html">Home</a> <!-- Link para a página Home -->
@@ -34,12 +37,21 @@
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" required>
                 <br><br>
-                <button type="submit" class="btf-default">Entrar</button>
+                <div class="button--submit">
+                    <button type="submit" class="btf-default">Entrar</button>
+                </div>
             </form>
-            <br>
-            <button class="btf-default" onclick="redirectToRegister()">Realizar Cadastro</button>
+            <!--<br> retirado por caio-->
+            <div class="button--submit">
+                <button class="btf-default" onclick="redirectToRegister()">Realizar Cadastro</button>
+            </div>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Federação Maranhense de Jogos de Dama. Todos os direitos reservados.</p>
+        <p><a href="mailto:contato@federacaojogosdama.com.br">contato@federacaojogosdama.com.br</a></p>
+    </footer>
 
     <!-- Script para redirecionar -->
     <script>

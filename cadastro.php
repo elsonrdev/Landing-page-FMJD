@@ -27,7 +27,7 @@
     <main>
         <section id="cadastro">
             <h1>Cadastro</h1>
-            <form>
+            <form action="home.php" method="POST">
                 <label for="name">Nome Completo:</label>
                 <input type="text" id="name" name="name" required>
                 <br><br>
@@ -37,11 +37,11 @@
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
                 <br><br>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <br><br>
                 <label for="phone">Número de Telefone:</label>
                 <input type="tel" id="phone" name="phone" required>
-                <br><br>
-                <label for="location">Localização:</label>
-                <input type="text" id="location" name="location" required>
                 <br><br>
                 <div class="button--submit">
                     <button type="submit" class="btf-default">Cadastrar</button>

@@ -31,7 +31,7 @@ body {
 
 /* Main Section */
 main {
-    padding: 40px 20px;
+    /*padding: 40px 20px; retirado pro caio*/
     text-align: center;
 }
 
@@ -164,4 +164,108 @@ footer a:hover {
     .about-text, .about-image {
         width: 100%;
     }
+}
+
+
+
+/* caio */
+
+#sobre-nos--div{
+    text-align: justify;
+}
+
+.paragrafo--div{
+    padding-top: 10px;
+}
+
+.button--submit{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+.btf-default{
+    width: 156px;
+    height: 50px;
+}
+
+#about{
+    margin: 50px 0;
+}
+
+#noticias{
+    margin: 50px 0;
+}
+
+.about-image{
+    margin-top: 50px;
+}
+
+main{
+    padding: 40px 8%;
+    flex: 1;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column
+}
+
+.about-image-home{
+    width: 150px;
+    height: 200px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.button-inscrever{
+    border-radius: 999rem;
+    padding: 15px;
+    cursor:pointer ;
+    background-color: #ff7f10;
+}
+
+.button-inscrever:hover{
+    background-color: #d1711d;
+    transition: 0.5s;
+}
+
+.titulo-acao{
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.butao-acao{
+    border-radius: 999rem;
+    width: 200px;
+    transition: 0.5s;
+}
+
+.butao-acao:hover{
+    background-color: #f8d477;
+    transition: 0.5s;
+    width: 220px;
 }

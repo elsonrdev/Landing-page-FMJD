@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="src/styles/styles.css">
     <link rel="stylesheet" href="src/styles/header.css">
     <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
-    <title>Cadastro</title>
+    <title>Login</title>
 </head>
 <body>
+    
+    <!-- Header -->
     <header>
         <nav id="navbar">
             <div id="img--div">
@@ -24,29 +26,25 @@
             </button>
         </nav>
     </header>
+
     <main>
-        <section id="cadastro">
-            <h1>Cadastro</h1>
-            <form>
-                <label for="name">Nome Completo:</label>
-                <input type="text" id="name" name="name" required>
-                <br><br>
-                <label for="cpf">CPF:</label>
-                <input type="tel" id="cpf" name="cpf" required>
-                <br><br>
+        <section id="login">
+            <h1>Login</h1>
+            <form name="form" action="home.php" method="POST">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
                 <br><br>
-                <label for="phone">Número de Telefone:</label>
-                <input type="tel" id="phone" name="phone" required>
-                <br><br>
-                <label for="location">Localização:</label>
-                <input type="text" id="location" name="location" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
                 <br><br>
                 <div class="button--submit">
-                    <button type="submit" class="btf-default">Cadastrar</button>
+                    <button type="submit" class="btf-default">Entrar</button>
                 </div>
             </form>
+            <!--<br> retirado por caio-->
+            <div class="button--submit">
+                <button class="btf-default" onclick="redirectToRegister()">Realizar Cadastro</button>
+            </div>
         </section>
     </main>
     <footer>
@@ -54,5 +52,17 @@
         <p><a href="mailto:contato@federacaojogosdama.com.br">contato@federacaojogosdama.com.br</a></p>
     </footer>
 
+    <!-- Script para redirecionar -->
+    <script>
+        function redirectToRegister() {
+            window.location.href = "cadastro.php";  // Direciona para a página de cadastro
+        }
+
+        function redirectToLogin() {
+            window.location.href = "login.php";  // Redireciona para a página de login
+        }
+    </script>
+
 </body>
 </html>
+

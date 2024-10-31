@@ -36,8 +36,7 @@ header {
 }
 
 @media screen and (max-width: 1170px) {
-    #nav_list,
-    #navbar .btf-default {
+    #nav_list{
         display: none;
     }
 
@@ -60,7 +59,11 @@ header {
         gap: 24px;
     }
 
-    #mobile_menu {
-        display: block;
-    }
+}
+
+/* Caio */
+
+#img--div{
+    padding: 0 86px 0 0;
+    height: 50px;
 }
