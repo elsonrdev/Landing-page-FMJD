@@ -26,42 +26,43 @@
     </header>
     <main style="padding-top: 0;">
         <h1>Torneios</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Torneio</th>
-                    <th>Tabuleiro</th>
-                    <th>Data</th>
-                    <th>Local</th>
-                    <th>Inscrição</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-                    $torneios = ["Torneio 1", "Torneio 2", "Torneio 3", "Torneio 4"];
-                    $tabuleiro = ["8x8", "10x10", "10x10", "8x8"];
-                    $data = ["15 de março de 2024", "22 de março de 2024", "29 de março de 2024", "5 de abril de 2024"];
-                    $localizacao= ["Centro Histórico", "UNDB", "Parque do bom menino", "Shopping da Ilha"];
-                    
-                    array_multisort($data, SORT_DESC, $torneios, $tabuleiro, $data, $localizacao);
-
-                    for ($i=0; $i < count($torneios); $i++) { 
-                        echo '
-                        <tr>
-                            <td>'.$torneios[$i].'</td>
-                            <td>'.$tabuleiro[$i].'</td>
-                            <td>'.$data[$i].'</td>
-                            <td>'.$localizacao[$i].'</td>
-                            <form action="pagamento.php" method="GET">
-                                <td class="celula-inscrever">
-                                    <button class="button-inscrever" name="Torneio" value="'.$torneios[$i].'"><strong>Inscrever-se</strong></button>
-                                </td>
-                            </form>
-                        </tr>
-                        ';
-                    }
-                ?>
-        </table>
+        <div id="tabela-responsiva">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Torneio</th>
+                        <th>Tabuleiro</th>
+                        <th>Data</th>
+                        <th>Local</th>
+                        <th>Inscrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $torneios = ["Torneio 1", "Torneio 2", "Torneio 3", "Torneio 4"];
+                        $tabuleiro = ["8x8", "10x10", "10x10", "8x8"];
+                        $data = ["15 de março de 2024", "22 de março de 2024", "29 de março de 2024", "5 de abril de 2024"];
+                        $localizacao= ["Centro Histórico", "UNDB", "Parque do bom menino", "Shopping da Ilha"];
+            
+                        array_multisort($data, SORT_DESC, $torneios, $tabuleiro, $data, $localizacao);
+                        for ($i=0; $i < count($torneios); $i++) {
+                            echo '
+                            <tr>
+                                <td>'.$torneios[$i].'</td>
+                                <td>'.$tabuleiro[$i].'</td>
+                                <td>'.$data[$i].'</td>
+                                <td>'.$localizacao[$i].'</td>
+                                <form action="pagamento.php" method="GET">
+                                    <td class="celula-inscrever">
+                                        <button class="button-inscrever" name="Torneio" value="'.$torneios[$i].'"><strong>Inscrever-se</strong></button>
+                                    </td>
+                                </form>
+                            </tr>
+                            ';
+                        }
+                    ?>
+            </table>
+        </div>
         <script>
             function voltarPagina() {
                 history.back();

@@ -164,11 +164,30 @@ footer a:hover {
     .about-text, .about-image {
         width: 100%;
     }
+
+    main{
+        padding: 40px 10px !important;
+    }
+
+    #about{
+        padding: 50px 10px !important;
+    }
 }
 
 
 
 /* caio */
+
+.input-submit{
+    font-size: 15px;
+    padding: 3px;
+    width: 250px;
+    margin-top: 15px;
+}
+
+button{
+    color: black;
+}
 
 #sobre-nos--div{
     text-align: justify;
@@ -190,6 +209,7 @@ label {
 }
 
 .btf-default{
+    color: black;
     width: 156px;
     height: 50px;
 }
@@ -268,4 +288,8 @@ tr:hover {
     background-color: #f8d477;
     transition: 0.5s;
     width: 220px;
+}
+
+#tabela-responsiva{
+    overflow-x: auto;
 }

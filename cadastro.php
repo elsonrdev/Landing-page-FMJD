@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="src/styles/header.css">
     <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
     <title>Cadastro</title>
+    <script>
+        function formatarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, ''); // Remove tudo que não é número
+            if (cpf.length > 11) {
+                cpf = cpf.substring(0, 11); // Limita a 11 caracteres
+            }
+            // Aplica a formatação
+            return cpf.replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1-$2');
+        }
+
+        function formatarTelefone(telefone) {
+            telefone = telefone.replace(/\D/g, ''); // Remove tudo que não é número
+            if (telefone.length > 11) {
+                telefone = telefone.substring(0, 11); // Limita a 11 caracteres
+            }
+            if (telefone.length > 10) {
+                return telefone.replace(/(\d{2})(\d{5})(\d)/, '($1) $2-$3');
+            } else {
+                return telefone.replace(/(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2');
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -29,19 +53,19 @@
             <h1>Cadastro</h1>
             <form action="home.php" method="POST">
                 <label for="name">Nome Completo:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" class="input-submit" id="name" name="name" placeholder="Ex: João da Silva" minlength="3" required>
                 <br><br>
                 <label for="cpf">CPF:</label>
-                <input type="tel" id="cpf" name="cpf" required>
+                <input type="tel" class="input-submit" id="cpf" name="cpf" placeholder="Ex: 123.456.789-00" minlength="14" maxlength="14" oninput="this.value = formatarCPF(this.value)" required>
                 <br><br>
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" class="input-submit" id="email" name="email" placeholder="Ex: seuemail@exemplo.com" required>
                 <br><br>
                 <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" class="input-submit" id="password" name="password" placeholder="Mínimo 8 caracteres" minlength="8" required>
                 <br><br>
                 <label for="phone">Número de Telefone:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" class="input-submit" id="phone" name="phone" placeholder="Ex: (98) 91234-5678" minlength="14" maxlength="15" oninput="this.value = formatarTelefone(this.value)" required>
                 <br><br>
                 <div class="button--submit">
                     <button type="submit" class="btf-default">Cadastrar</button>

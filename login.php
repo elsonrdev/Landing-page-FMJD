@@ -32,10 +32,10 @@
             <h1>Login</h1>
             <form name="form" action="home.php" method="POST">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" class="input-submit" id="email" name="email" required>
                 <br><br>
                 <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" class="input-submit" id="password" name="password" required>
                 <br><br>
                 <div class="button--submit">
                     <button type="submit" class="btf-default">Entrar</button>
