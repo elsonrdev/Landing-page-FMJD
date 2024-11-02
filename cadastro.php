@@ -8,17 +8,6 @@
     <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
     <title>Cadastro</title>
     <script>
-        function formatarCPF(cpf) {
-            cpf = cpf.replace(/\D/g, ''); // Remove tudo que não é número
-            if (cpf.length > 11) {
-                cpf = cpf.substring(0, 11); // Limita a 11 caracteres
-            }
-            // Aplica a formatação
-            return cpf.replace(/(\d{3})(\d)/, '$1.$2')
-                    .replace(/(\d{3})(\d)/, '$1.$2')
-                    .replace(/(\d{3})(\d)/, '$1-$2');
-        }
-
         function formatarTelefone(telefone) {
             telefone = telefone.replace(/\D/g, ''); // Remove tudo que não é número
             if (telefone.length > 11) {
@@ -34,6 +23,7 @@
 </head>
 <body>
     <header>
+
         <nav id="navbar">
             <div id="img--div">
                 <img src="src/image/logo_bandeira_MA (1).png" alt="Logo Bandeira do Maranhão" width="70" height="50">
@@ -52,11 +42,14 @@
         <section id="cadastro">
             <h1>Cadastro</h1>
             <form action="home.php" method="POST">
-                <label for="name">Nome Completo:</label>
-                <input type="text" class="input-submit" id="name" name="name" placeholder="Ex: João da Silva" minlength="3" required>
+                <label for="name">Nome:</label>
+                <input type="text" class="input-submit" id="name" name="name" placeholder="Ex: João" minlength="3" required>
                 <br><br>
-                <label for="cpf">CPF:</label>
-                <input type="tel" class="input-submit" id="cpf" name="cpf" placeholder="Ex: 123.456.789-00" minlength="14" maxlength="14" oninput="this.value = formatarCPF(this.value)" required>
+                <label for="name">Sobrenome:</label>
+                <input type="text" class="input-submit" id="name" name="last-name" placeholder="Ex: Pereira" minlength="3" required>
+                <br><br>
+                <label for="name">Usuário:</label>
+                <input type="text" class="input-submit" id="name" name="usuario" placeholder="Ex: J_Pereira12 (Sem espaços)" minlength="3" pattern="[^ ]+" required>
                 <br><br>
                 <label for="email">E-mail:</label>
                 <input type="email" class="input-submit" id="email" name="email" placeholder="Ex: seuemail@exemplo.com" required>

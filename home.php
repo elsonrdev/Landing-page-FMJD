@@ -44,7 +44,8 @@
         <section id="home">
             <?php 
                 $nome = $_POST['name'];
-                echo '<h1>Bem Vindo, '.$nome.'!</h1>';
+                $lastname = $_POST['last-name'];
+                echo '<h1>Bem Vindo, '.$nome.' '.$lastname.'!</h1>';
             ?>
             <p>Aqui você pode ficar por dentro das últimas notícias da FMJD, além de se inscrever em torneios emocionantes e acompanhar o ranking atualizado dos jogadores. Mantenha-se informado sobre eventos importantes, novas competições e resultados, tudo em um só lugar. Participe ativamente da comunidade e esteja sempre um passo à frente!</p>
             
