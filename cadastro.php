@@ -40,8 +40,12 @@
     </header>
     <main>
         <section id="cadastro">
+            <?php 
+                include 'funcoes.php';
+            ?>
+
             <h1>Cadastro</h1>
-            <form action="home.php" method="POST">
+            <form method="POST">
                 <label for="name">Nome:</label>
                 <input type="text" class="input-submit" id="name" name="name" placeholder="Ex: João" minlength="3" required>
                 <br><br>
@@ -61,9 +65,27 @@
                 <input type="tel" class="input-submit" id="phone" name="phone" placeholder="Ex: (98) 91234-5678" minlength="14" maxlength="15" oninput="this.value = formatarTelefone(this.value)" required>
                 <br><br>
                 <div class="button--submit">
-                    <button type="submit" class="btf-default">Cadastrar</button>
+                    <button type="submit" class="btf-default" name="submit">Cadastrar</button>
                 </div>
             </form>
+
+            <?php 
+                if (isset($_POST['submit'])) {
+                    $primeiroNome = $_POST['name'];
+                    $sobrenome = $_POST['last-name'];
+
+                    $name = "$primeiroNome"." $sobrenome";
+
+                    $username = $_POST['usuario'];
+                    $email = $_POST['email'];
+                    $senha = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                    $telefone = $_POST['phone'];
+                    $post= cadastroUsuario($name, $username, $email, $senha, $telefone);
+
+                    header('location: home.php');
+                }
+                
+            ?>
         </section>
     </main>
     <footer>

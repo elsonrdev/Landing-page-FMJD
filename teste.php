@@ -1,63 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/header.css">
+    <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
+    <title>Rank</title>
 </head>
 <body>
-    <?php 
-        $host = 'localhost'; // Use 'localhost' para XAMPP
-        $usuario = 'root'; // Usuário padrão no XAMPP
-        $senha = ''; // Senha vazia por padrão
-        $banco = 'u661331863_bd_fmjd'; // Nome do seu banco de dados
-        
-        // Criar conexão
+    <header>
+        <nav id="navbar">
+            <div id="img--div">
+                <img src="src/image/logo_bandeira_MA (1).png" alt="Logo Bandeira do Maranhão" width="70" height="50">
+            </div>
+            <ul id="nav_list">
+                <li class="nav-item">
+                    <a href="#">Home</a> 
+            </ul>
+            <button class="btf-default" onclick="redirectToLogin()">Oi!</button>
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <main style="padding-top: 0;">
+        <?php 
+            include 'db.php';
+            $bancoDeDados = "SELECT * FROM usuarios;";
+            $PushBD = $conn -> query($bancoDeDados);
+            $usuario = $PushBD -> fetch_assoc();
+            var_dump($usuario);
+        ?>
+    </main>
+    <footer>
+        <p>&copy; 2024 Federação Maranhense de Jogos de Dama. Todos os direitos reservados.</p>
+        <p><a href="mailto:contato@federacaojogosdama.com.br">contato@federacaojogosdama.com.br</a></p>
+    </footer>
 
-        $conn = new mysqli($host, $usuario, $senha, $banco);
-
-        // Verificar conexão
-        if ($conn->connect_error) {
-            die("Erro na conexão: " . $conn->connect_error);
-        }
-
-        // Consulta para selecionar os dados
-        $sql = "SELECT * FROM usuarios";
-        $result = $conn->query($sql);
-
-        // Verificar se há resultados
-        if ($result->num_rows > 0) {
-            // Exibir dados em uma tabela HTML
-            echo "<table border='1'>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                    </tr>";
-            // Saída de dados de cada linha
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>" . $row["id"] . "</td>
-                        <td>" . $row["name"] . "</td>
-                        <td>" . $row["username"] . "</td>
-                        <td>" . $row["email"] . "</td>
-                        <td>" . $row["telefone"] . "</td>
-                      </tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "0 resultados";
-        }
-
-        // Fechar a conexão
-        $conn->close();
-
-
-        $email = $_POST['email'];
-        $senha = $_POST['password'];
-        echo 'Olá Caio'
-    ?>
 </body>
 </html>
