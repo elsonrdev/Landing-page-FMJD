@@ -59,7 +59,7 @@
                 <input type="text" class="input-submit" id="name" name="last-name" placeholder="Ex: Pereira" minlength="3" required>
                 <br><br>
                 <label for="name">Usuário:</label>
-                <input type="text" class="input-submit" id="name" name="usuario" placeholder="Ex: J_Pereira12 (Sem espaços)" minlength="3" pattern="[^ ]+" required>
+                <input type="text" class="input-submit" id="usuario" name="usuario" placeholder="Ex: J_Pereira12 (Sem espaços)" minlength="3" maxlength="30" pattern="[^ ]+" required>
                 <br><br>
                 <label for="email">E-mail:</label>
                 <input type="email" class="input-submit" id="email" name="email" placeholder="Ex: seuemail@exemplo.com" required>

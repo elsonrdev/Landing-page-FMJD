@@ -3,8 +3,7 @@
         include 'db.php';
         $inserirBd = "INSERT INTO usuarios (admin, name, username, email, password, telefone) VALUES (0, '$nome', '$username', '$email', '$senha', '$telefone');";
         $PushBD = $conn -> query($inserirBd);
-        
-
+    
     };
 
     function logar($email, $senha){
@@ -38,3 +37,19 @@
         return $name;
 
     };
+
+    function jogadores($num){
+        include 'db.php';
+        $mostrarJogadores = "SELECT name, username, partidas_jogadas, vitorias, torneios_ganhos, pontos FROM usuarios WHERE idusuario = $num";
+        $PushBD = $conn -> query($mostrarJogadores);
+        $resultado = $PushBD -> fetch_assoc();
+
+        $name = $resultado['name'];
+        $username = $resultado['username'];
+        $pJ = $resultado['partidas_jogadas'];
+        $vitorias = $resultado['vitorias'];
+        $tG = $resultado['torneios_ganhos'];
+        $pontos = $resultado['pontos'];
+
+        return array($name, $username, $pJ, $vitorias, $tG, $pontos);
+    }
