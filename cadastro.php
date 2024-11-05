@@ -19,6 +19,12 @@
                 return telefone.replace(/(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2');
             }
         }
+
+        
+        function voltarPagina() {
+            history.back();
+        }
+        
     </script>
 </head>
 <body>
@@ -69,11 +75,13 @@
                 </div>
             </form>
 
+            
+
             <?php 
                 if (isset($_POST['submit'])) {
                     $primeiroNome = $_POST['name'];
                     $sobrenome = $_POST['last-name'];
-
+                        
                     $name = "$primeiroNome"." $sobrenome";
 
                     $username = $_POST['usuario'];
@@ -86,6 +94,10 @@
                 }
                 
             ?>
+            <br><br>
+            <button onclick="voltarPagina()" class="butao-acao">
+                <h2 class="titulo-acao">Voltar</h2>
+            </button>
         </section>
     </main>
     <footer>

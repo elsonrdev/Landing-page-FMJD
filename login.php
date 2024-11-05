@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="src/styles/header.css">
     <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
     <title>Login</title>
+    <script>
+        function voltarPagina() {
+            history.back();
+        }
+
+    </script>
 </head>
 <body>
     
@@ -29,8 +35,11 @@
 
     <main>
         <section id="login">
+            <?php 
+                include 'funcoes.php';
+            ?>
             <h1>Login</h1>
-            <form name="form" action="home.php" method="POST">
+            <form name="form" method="POST">
                 <label for="email">E-mail:</label>
                 <input type="email" class="input-submit" id="email" name="email" required>
                 <br><br>
@@ -38,13 +47,28 @@
                 <input type="password" class="input-submit" id="password" name="password" required>
                 <br><br>
                 <div class="button--submit">
-                    <button type="submit" class="btf-default">Entrar</button>
+                    <button type="submit" class="btf-default" name="submit">Entrar</button>
                 </div>
             </form>
+            <?php 
+                if (isset($_POST['submit'])) {
+
+                    $email = $_POST['email'];
+                    $senha = $_POST['password'];
+                    
+                    logar($email, $senha);
+                }
+            ?>
+
+
             <!--<br> retirado por caio-->
             <div class="button--submit">
                 <button class="btf-default" onclick="redirectToRegister()">Realizar Cadastro</button>
             </div>
+            <br><br>    
+            <button onclick="voltarPagina()" class="butao-acao">
+                <h2 class="titulo-acao">Voltar</h2>
+            </button>
         </section>
     </main>
     <footer>
@@ -57,12 +81,7 @@
         function redirectToRegister() {
             window.location.href = "cadastro.php";  // Direciona para a página de cadastro
         }
-
-        function redirectToLogin() {
-            window.location.href = "login.php";  // Redireciona para a página de login
-        }
     </script>
 
 </body>
 </html>
-
