@@ -16,7 +16,7 @@
             </div>
             <ul id="nav_list">
                 <li class="nav-item">
-                    <a href="#">Home</a> 
+                    <a href="home.php">Home</a> 
             </ul>
             <button class="btf-default" onclick="redirectToLogin()">Oi!</button>
             <button id="mobile_btn">
@@ -122,9 +122,11 @@
                 history.back();
             }
         </script>
-        <button onclick="voltarPagina()" class="butao-acao">
-            <h2 class="titulo-acao">Voltar</h2>
-        </button>
+        <a href="home.php">
+            <button class="butao-acao">
+                <h2 class="titulo-acao">Voltar</h2>
+            </button>
+        </a>
     </main>
     <footer>
         <p>&copy; 2024 Federação Maranhense de Jogos de Dama. Todos os direitos reservados.</p>

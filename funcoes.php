@@ -78,6 +78,13 @@
         $PushBD = $conn -> query($addTorneios);
     }
 
+    function cancelarTorneio($name) {
+        include 'db.php';
+        $cancelarTorneio = "DELETE FROM torneios WHERE name = '$name'";
+        $PushBD = $conn -> query($cancelarTorneio);
+        header('Location: ' . $_SERVER['PHP_SELF']);
+    }
+
     function aumentarPartidas($id){
         include 'db.php';
         $aumentarP = "UPDATE usuarios SET partidas_jogadas = partidas_jogadas + 1 WHERE idusuario = $id";

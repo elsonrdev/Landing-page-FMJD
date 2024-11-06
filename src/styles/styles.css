@@ -50,8 +50,7 @@ main p {
 /* Estilos do Slider */
 .slider {
     position: relative;
-    width: 100%;
-    max-width: 600px;
+    width: 800px;
     margin: 20px auto;
     overflow: hidden;
     border-radius: 10px;

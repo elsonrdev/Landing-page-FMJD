@@ -16,7 +16,7 @@
             </div>
             <ul id="nav_list">
                 <li class="nav-item">
-                    <a href="#">Home</a> 
+                    <a href="home.php">Home</a> 
             </ul>
             <button class="btf-default" onclick="redirectToLogin()">Oi!</button>
             <button id="mobile_btn">

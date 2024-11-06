@@ -32,7 +32,7 @@
             </div>
             <ul id="nav_list">
                 <li class="nav-item">
-                    <a href="#">Home</a> <!-- Link para a página Home -->
+                    <a href="home.php">Home</a> <!-- Link para a página Home -->
             </ul>
             <button class="btf-default" onclick="redirectToLogin()">Oi!</button>
             <button id="mobile_btn">

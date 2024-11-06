@@ -59,7 +59,7 @@
                         }
 
                         for ($i=0; $i < count($torneio); $i++) {
-                            array_multisort($torneio, SORT_ASC, $data, $tabuleiro, $local);
+                            array_multisort($data, SORT_ASC, $torneio, $tabuleiro, $local);
 
                             $dataArray = explode('-', $data[$i]);
                             $dataFormatada = "$dataArray[2]/$dataArray[1]/$dataArray[0]";
