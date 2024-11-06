@@ -1,10 +1,6 @@
 <?php 
     include 'db.php';
     include 'funcoes.php';
-    if (!isset($_SESSION)) {
-        session_start();
-    } 
-    
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +13,7 @@
     <link rel="stylesheet" href="src/styles/header.css">
     <link rel="stylesheet" href="src/styles/stylesLogin.css">
     <link rel="shortcut icon" href="src/image/favicon.ico" type="image/x-icon">
-    <title>Landing Page - FMJD</title>
+    <title>FMJD</title>
 </head>
 <body>
 
@@ -52,8 +48,12 @@
 
         <section id="home">
             <?php 
-                $nome = $_SESSION['name'];
-                echo '<h1>Bem Vindo, '.$nome.'!</h1>';
+                $nome = $_POST['name'];
+                echo '<h1>Bem Vindo';
+                if ($nome != '') {
+                    echo ", $nome";
+                };
+                echo '!</h1>';
             ?>
             <p>Aqui você pode ficar por dentro das últimas notícias da FMJD, além de se inscrever em torneios emocionantes e acompanhar o ranking atualizado dos jogadores. Mantenha-se informado sobre eventos importantes, novas competições e resultados, tudo em um só lugar. Participe ativamente da comunidade e esteja sempre um passo à frente!</p>
             
@@ -85,7 +85,7 @@
                                 $pontosJogador = [];
 
 
-                                for ($i=0; $i < 25; $i++) { 
+                                for ($i=0; $i < 1000; $i++) { 
                                     $jogadores = jogadores($i);
                                     if ($jogadores[0] != '') {
                                         $nomesJogadores[$i] = $jogadores[0];
@@ -123,8 +123,20 @@
                     <h2 class="titulo-acao">Ver Todos</h2>
                 </button>
             </a>
+            <?php 
+                $admin = $_POST['admin'];
+                if ($admin == 1) {
+                    echo '
+                        <br><br>
+                        <a href="rankadmin.php">
+                            <button class="butao-acao">
+                                <h2 class="titulo-acao">Atualizar rank</h2>
+                            </button>
+                        </a>
+                    ';
+                } 
+            ?>
         </section>
-
                 <!-- Seção Torneios -->
         <section id="tournaments" class="tournaments-section">
             <h2>Torneios</h2>
@@ -141,26 +153,42 @@
                 </thead>
                 <tbody>
                     <?php
-                        $torneios = ["Torneio 1", "Torneio 2", "Torneio 3", "Torneio 4"];
-                        $tabuleiro = ["8x8", "10x10", "10x10", "8x8"];
-                        $data = ["15 de março de 2024", "22 de março de 2024", "29 de março de 2024", "5 de abril de 2024"];
-                        $localizacao= ["Centro Histórico", "UNDB", "Parque do bom menino", "Shopping da Ilha"];
+                        $torneio = [];
+                        $tabuleiro = [];
+                        $data = [];
+                        $local = [];
+
+                        for ($i=0; $i < 500; $i++) { 
+                            $torneios = torneios($i);
+                            if ($torneios[0] != '') {
+                                $torneio[$i] = $torneios[0];
+                                $tabuleiro[$i] = $torneios[1];
+                                $data[$i] = $torneios[2];
+                                $local[$i] = $torneios[3];
+                            }
+                             
+                        }
+
                         for ($i=0; $i < 4; $i++) {
+
+                            array_multisort($torneio, SORT_ASC, $data, $tabuleiro, $local);
+
                             echo '
                             <tr>
-                                <td>'.$torneios[$i].'</td>
+                                <td>'.$torneio[$i].'</td>
                                 <td>'.$tabuleiro[$i].'</td>
                                 <td>'.$data[$i].'</td>
-                                <td>'.$localizacao[$i].'</td>
+                                <td>'.$local[$i].'</td>
                                 <form action="pagamento.php" method="GET">
                                     <td class="celula-inscrever">
-                                        <button class="button-inscrever" name="Torneio" value="'.$torneios[$i].'"><strong>Inscrever-se</strong></button>
+                                        <button class="button-inscrever" name="Torneio" value="'.$torneio[$i].'"><strong>Inscrever-se</strong></button>
                                     </td>
                                 </form>
                             </tr>
                             ';
                         }
                     ?>
+                </tbody>
             </table>
         </div>
             <a href="torneios.php">
@@ -168,6 +196,19 @@
                     <h2 class="titulo-acao">Ver Todos</h2>
                 </button>
             </a>
+        <?php 
+            $admin = $_POST['admin'];
+            if ($admin == 1) {
+                echo '
+                    <br><br>
+                    <a href="torneiosadmin.php">
+                        <button class="butao-acao">
+                            <h2 class="titulo-acao">Criar Torneio</h2>
+                        </button>
+                    </a>
+                ';
+            } 
+        ?>
         </section>
 
     <section id="noticias" class="about-section">
@@ -207,7 +248,17 @@
                 <span class="dot" onclick="currentSlide(7)"></span>
             </div>
         </div>
-        
+        <?php 
+            $admin = $_POST['admin'];
+            if ($admin == 1) {
+                echo '
+                    <br><br>
+                    <button class="butao-acao">
+                        <h2 class="titulo-acao">Nova notícia</h2>
+                    </button>
+                ';
+            } 
+        ?>
     </section>
 
     <section>

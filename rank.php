@@ -53,9 +53,9 @@
                                 $pontosJogador = [];
 
 
-                                for ($i=0; $i < 25; $i++) { 
+                                for ($i=0; $i < 1000; $i++) { 
                                     $jogadores = jogadores($i);
-                                    if ($jogadores[0] != '') {
+                                    if ($jogadores[0] != '' && $jogadores[5] != 0) {
                                         $nomesJogadores[$i] = $jogadores[0];
                                         $usuariosJogadores[$i] = $jogadores[1];
                                         $partidasJogadas[$i] = $jogadores[2];

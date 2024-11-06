@@ -48,6 +48,7 @@
         <section id="cadastro">
             <?php 
                 include 'funcoes.php';
+                include 'db.php'
             ?>
 
             <h1>Cadastro</h1>
@@ -56,10 +57,10 @@
                 <input type="text" class="input-submit" id="name" name="name" placeholder="Ex: João" minlength="3" required>
                 <br><br>
                 <label for="name">Sobrenome:</label>
-                <input type="text" class="input-submit" id="name" name="last-name" placeholder="Ex: Pereira" minlength="3" required>
+                <input type="text" class="input-submit" id="last-name" name="last-name" placeholder="Ex: Pereira" minlength="3" required>
                 <br><br>
                 <label for="name">Usuário:</label>
-                <input type="text" class="input-submit" id="usuario" name="usuario" placeholder="Ex: J_Pereira12 (Sem espaços)" minlength="3" maxlength="30" pattern="[^ ]+" required>
+                <input type="text" class="input-submit" id="usuario" name="usuario" pattern="[^ ]+" placeholder="Ex: J_Pereira12 (sem espaços)" minlength="3" maxlength="30" required>
                 <br><br>
                 <label for="email">E-mail:</label>
                 <input type="email" class="input-submit" id="email" name="email" placeholder="Ex: seuemail@exemplo.com" required>
@@ -79,20 +80,20 @@
 
             <?php 
                 if (isset($_POST['submit'])) {
+
                     $primeiroNome = $_POST['name'];
                     $sobrenome = $_POST['last-name'];
-                        
                     $name = "$primeiroNome"." $sobrenome";
-
-                    $username = $_POST['usuario'];
+                    $usuario = $_POST['usuario'];
                     $email = $_POST['email'];
                     $senha = password_hash($_POST['password'], PASSWORD_DEFAULT);
                     $telefone = $_POST['phone'];
-                    $post= cadastroUsuario($name, $username, $email, $senha, $telefone);
+                    $post = cadastroUsuario($name, $usuario, $email, $senha, $telefone);
 
-                    header('location: home.php');
+                    echo 'Email, Usuário ou telefone já estão em uso.';
+
                 }
-                
+
             ?>
             <br><br>
             <button onclick="voltarPagina()" class="butao-acao">

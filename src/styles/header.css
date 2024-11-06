@@ -67,3 +67,16 @@ header {
     padding: 0 86px 0 0;
     height: 50px;
 }
+
+.inputadm{
+    height: 20px;
+    width: 20px;
+    color: black;
+}
+
+.thmutavel{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}

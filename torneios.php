@@ -1,3 +1,7 @@
+<?php 
+    include 'funcoes.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,7 +20,7 @@
             </div>
             <ul id="nav_list">
                 <li class="nav-item">
-                    <a href="#">Home</a> <!-- Link para a página Home -->
+                    <a href="home.php">Home</a> <!-- Link para a página Home -->
             </ul>
             <button class="btf-default" onclick="redirectToLogin()">Oi!</button>
             <button id="mobile_btn">
@@ -39,28 +43,43 @@
                 </thead>
                 <tbody>
                     <?php
-                        $torneios = ["Torneio 1", "Torneio 2", "Torneio 3", "Torneio 4"];
-                        $tabuleiro = ["8x8", "10x10", "10x10", "8x8"];
-                        $data = ["15 de março de 2024", "22 de março de 2024", "29 de março de 2024", "5 de abril de 2024"];
-                        $localizacao= ["Centro Histórico", "UNDB", "Parque do bom menino", "Shopping da Ilha"];
-            
-                        array_multisort($data, SORT_DESC, $torneios, $tabuleiro, $data, $localizacao);
-                        for ($i=0; $i < count($torneios); $i++) {
+                        $torneio = [];
+                        $tabuleiro = [];
+                        $data = [];
+                        $local = [];
+
+                        for ($i=0; $i < 500; $i++) { 
+                            $torneios = torneios($i);
+                            if ($torneios[0] != '') {
+                                $torneio[$i] = $torneios[0];
+                                $tabuleiro[$i] = $torneios[1];
+                                $data[$i] = $torneios[2];
+                                $local[$i] = $torneios[3];
+                            }
+                        }
+
+                        for ($i=0; $i < count($torneio); $i++) {
+                            array_multisort($torneio, SORT_ASC, $data, $tabuleiro, $local);
+
+                            $dataArray = explode('-', $data[$i]);
+                            $dataFormatada = "$dataArray[2]/$dataArray[1]/$dataArray[0]";
+
                             echo '
                             <tr>
-                                <td>'.$torneios[$i].'</td>
+                                <td>'.$torneio[$i].'</td>
                                 <td>'.$tabuleiro[$i].'</td>
-                                <td>'.$data[$i].'</td>
-                                <td>'.$localizacao[$i].'</td>
+                                <td>'.$dataFormatada.'</td>
+                                <td>'.$local[$i].'</td>
                                 <form action="pagamento.php" method="GET">
                                     <td class="celula-inscrever">
-                                        <button class="button-inscrever" name="Torneio" value="'.$torneios[$i].'"><strong>Inscrever-se</strong></button>
+                                        <button class="button-inscrever" name="Torneio" value="'.$tornei[$i].'"><strong>Inscrever-se</strong></button>
                                     </td>
                                 </form>
                             </tr>
                             ';
                         }
                     ?>
+                </tbody>
             </table>
         </div>
         <script>
